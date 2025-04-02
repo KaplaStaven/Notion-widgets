@@ -32,7 +32,7 @@
 		}
 
 		.navMenu a {
-			color: #ff00f7;
+			color: #ffea00;
 			text-decoration: none;
 			text-transform: uppercase;
 			display: inline-block;
@@ -81,19 +81,29 @@
 
 
 		function navigate(id) {
-		    let url = "";
+		    let baseUrl = "https://www.notion.so/";
+		    let notionAppUrl = "notion://www.notion.so/";
 		
-		    if (id === 'home')
-		        url = "https://www.notion.so/Home-1c4764c211e3805da1c7f94f4628f6aa";
-		    else if (id === 'att-gora')
-		        url = "https://www.notion.so/Att-g-ra-1c4764c211e38025a575c6d20c1f5679";
-		    else if (id === 'inkorg')
-		        url = "https://www.notion.so/Quicknotes-Inkorg-1c4764c211e38075913cf4d89f6984c8";
-		    else if (id === 'arken')
-		        url = "https://www.notion.so/Arken-1c8764c211e380a79859d5a593f1f062";
+		    let pages = {
+		        "home": "Home-1c4764c211e3805da1c7f94f4628f6aa",
+		        "att-gora": "Att-g-ra-1c4764c211e38025a575c6d20c1f5679",
+		        "inkorg": "Quicknotes-Inkorg-1c4764c211e38075913cf4d89f6984c8",
+		        "arken": "Arken-1c8764c211e380a79859d5a593f1f062"
+		    };
 		
-		    window.open(url, "_self");
+		    let url = pages[id] ? baseUrl + pages[id] : "#";
+		
+		    // Try opening the Notion app URL first
+		    let notionUrl = notionAppUrl + pages[id];
+		
+		    window.location.href = notionUrl;
+		
+		    // Fallback: If the Notion app doesn’t handle the URL, open in browser
+		    setTimeout(() => {
+		        window.location.href = url;
+		    }, 500);
 }
+
 
 
 	</script>
