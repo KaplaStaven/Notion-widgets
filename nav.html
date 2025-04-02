@@ -7,7 +7,6 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 
 	<!-- Google Font -->
-
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet">
@@ -22,17 +21,16 @@
 			box-sizing: border-box;
 		}
 
-
 		.navMenu {
 			font-family: 'Advent Pro', sans-serif;
 			padding: 8px;
 			text-align: center;
-			margin: 2px auto;
+			margin: 7px auto;
 			width: fit-content;
 		}
 
 		.navMenu a {
-			color: #ffea00;
+			color: #FFFFFF;
 			text-decoration: none;
 			text-transform: uppercase;
 			display: inline-block;
@@ -45,11 +43,9 @@
 
 		.border {
 			border: 1px solid #FFFFFF;
-
 		}
 
 		.navMenu a:hover {
-
 			color: #9A6DD7;
 		}
 	</style>
@@ -57,57 +53,20 @@
 
 <body>
 
-	<nav class="navMenu  border">
-		<a id="home" onclick="navigate(this.id)" href="#"> <i class="fa-solid fa-house"></i> </a>
-		<a id="att-gora" onclick="navigate(this.id)" href="#"> <i class="fa-solid fa-list-check"></i> Att göra</a>
-		<a id="inkorg" onclick="navigate(this.id)" href="#"> <i class="fa-solid fa-inbox"></i> Quicknotes | Inkorg</a>
-		<a id="arken" onclick="navigate(this.id)" href="#"> <i class="fa-solid fa-sailboat"></i> Arken</a>
-
-
-
-
-
-
-
+	<nav class="navMenu border">
+		<a id="home" href="notion://www.notion.so/Home-1c4764c211e3805da1c7f94f4628f6aa"> 
+			<i class="fa-solid fa-house"></i> 
+		</a>
+		<a id="att-gora" href="notion://www.notion.so/Att-g-ra-1c4764c211e38025a575c6d20c1f5679"> 
+			<i class="fa-solid fa-list-check"></i> Att göra
+		</a>
+		<a id="inkorg" href="notion://www.notion.so/Quicknotes-Inkorg-1c4764c211e38075913cf4d89f6984c8"> 
+			<i class="fa-solid fa-inbox"></i> Quicknotes | Inkorg
+		</a>
+		<a id="arken" href="notion://www.notion.so/Arken-1c8764c211e380a79859d5a593f1f062"> 
+			<i class="fa-solid fa-sailboat"></i> Arken
+		</a>
 	</nav>
-
-
-	<script>
-
-		let direction = "horizontal";
-		if (direction === "vertical") {
-			document.head.insertAdjacentHTML("beforeend", `<style>.navMenu a {display: block; text-align:left; margin:7px} i{width:15px; margin-right:5px} .navMenu{margin:3px}</style>`)
-		}
-
-
-		function navigate(id) {
-		    let baseUrl = "https://www.notion.so/";
-		    let notionAppUrl = "notion://www.notion.so/";
-		
-		    let pages = {
-		        "home": "Home-1c4764c211e3805da1c7f94f4628f6aa",
-		        "att-gora": "Att-g-ra-1c4764c211e38025a575c6d20c1f5679",
-		        "inkorg": "Quicknotes-Inkorg-1c4764c211e38075913cf4d89f6984c8",
-		        "arken": "Arken-1c8764c211e380a79859d5a593f1f062"
-		    };
-		
-		    let url = pages[id] ? baseUrl + pages[id] : "#";
-		
-		    // Try opening the Notion app URL first
-		    let notionUrl = notionAppUrl + pages[id];
-		
-		    window.location.href = notionUrl;
-		
-		    // Fallback: If the Notion app doesn’t handle the URL, open in browser
-		    setTimeout(() => {
-		        window.location.href = url;
-		    }, 500);
-}
-
-
-
-	</script>
-
 
 </body>
 
