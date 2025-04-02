@@ -32,7 +32,7 @@
 		}
 
 		.navMenu a {
-			color: #cccccc;
+			color: #FFFFFF;
 			text-decoration: none;
 			text-transform: uppercase;
 			display: inline-block;
@@ -44,13 +44,13 @@
 		}
 
 		.border {
-			border: 1px solid #cccccc;
+			border: 1px solid #9A6DD7;
 
 		}
 
 		.navMenu a:hover {
 
-			color: #9A6DD7;
+			color: #d09c0b;
 		}
 	</style>
 </head>
@@ -58,10 +58,14 @@
 <body>
 
 	<nav class="navMenu  border">
-		<a id="home" onclick="navigate(this.id)" href="#"> <i class="fa-solid fa-house"></i> </a>
+		<a id="home" onclick="navigate(this.id)" href="#"> <i class="fa-solid fa-house"></i></a>
+		<a id="quicknotes" onclick="navigate(this.id)" href="#"> <i class="fa-solid fa-inbox"></i> Quicknotes | Inkorg</a>
 		<a id="att-gora" onclick="navigate(this.id)" href="#"> <i class="fa-solid fa-list-check"></i> Att göra</a>
-		<a id="inkorg" onclick="navigate(this.id)" href="#"> <i class="fa-solid fa-inbox"></i> Quicknotes | Inkorg</a>
+		<a id="projekt" onclick="navigate(this.id)" href="#"> <i class="fa-solid fa-bars-progress"></i> Projekt</a>
 		<a id="arken" onclick="navigate(this.id)" href="#"> <i class="fa-solid fa-sailboat"></i> Arken</a>
+
+
+
 	</nav>
 
 
@@ -74,16 +78,19 @@
 
 
 		function navigate(id) {
-    		if (id == 'home')
-        		window.location.href = "https://www.notion.so/Home-1c4764c211e3805da1c7f94f4628f6aa";
-    		else if (id == 'att-gora')
-        		window.location.href = "https://www.notion.so/Att-g-ra-1c4764c211e38025a575c6d20c1f5679";
-    		else if (id == 'inkorg')
-        		window.location.href = "https://www.notion.so/Quicknotes-Inkorg-1c4764c211e38075913cf4d89f6984c8";
-    		else if (id == 'arken')
-        		window.location.href = "https://www.notion.so/Arken-1c8764c211e380a79859d5a593f1f062";
-}
 
+			if (id == 'home')
+				window.open("https://www.notion.so/Home-1c4764c211e3805da1c7f94f4628f6aa", '_parent').focus();
+			if (id == 'quicknotes')
+				window.open("https://www.notion.so/Quicknotes-Inkorg-1c4764c211e38075913cf4d89f6984c8", '_parent').focus();
+			if (id == 'att-gora')
+				window.open("https://www.notion.so/Att-g-ra-1c4764c211e38025a575c6d20c1f5679", '_parent').focus();
+			if (id == 'projekt')
+				window.open("https://www.notion.so/Mina-Projekt-1c4764c211e38079a923d27004e9fcc0", '_parent').focus();
+			if (id == 'arken')
+				window.open("https://www.notion.so/Arken-1c8764c211e380a79859d5a593f1f062", '_parent').focus();
+
+		}
 	</script>
 
 
