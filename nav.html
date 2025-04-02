@@ -7,6 +7,7 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 
 	<!-- Google Font -->
+
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet">
@@ -21,6 +22,7 @@
 			box-sizing: border-box;
 		}
 
+
 		.navMenu {
 			font-family: 'Advent Pro', sans-serif;
 			padding: 8px;
@@ -30,7 +32,7 @@
 		}
 
 		.navMenu a {
-			color: #ffea00;
+			color: #FFFFFF;
 			text-decoration: none;
 			text-transform: uppercase;
 			display: inline-block;
@@ -43,48 +45,54 @@
 
 		.border {
 			border: 1px solid #FFFFFF;
+
 		}
 
 		.navMenu a:hover {
+
 			color: #9A6DD7;
 		}
 	</style>
-
-	<script>
-		// This script will add the appropriate links
-		window.onload = function() {
-			var isNotionApp = (navigator.userAgent.indexOf("Electron") > -1); // Check if running in Notion desktop app
-			var links = document.querySelectorAll('.navMenu a');
-
-			links.forEach(function(link) {
-				var notionId = link.getAttribute('id');
-				var notionBase = "https://www.notion.so/"; // Fallback for browser
-				var notionAppBase = "notion://www.notion.so/"; // Link for Notion desktop app
-
-				// Map of page IDs
-				var notionPages = {
-					"home": "Home-1c4764c211e3805da1c7f94f4628f6aa",
-					"att-gora": "Att-g-ra-1c4764c211e38025a575c6d20c1f5679",
-					"inkorg": "Quicknotes-Inkorg-1c4764c211e38075913cf4d89f6984c8",
-					"arken": "Arken-1c8764c211e380a79859d5a593f1f062"
-				};
-
-				// Set the link based on whether it's Notion app or web
-				link.setAttribute('href', isNotionApp ? notionAppBase + notionPages[notionId] : notionBase + notionPages[notionId]);
-			});
-		};
-	</script>
-
 </head>
 
 <body>
 
-	<nav class="navMenu border">
-		<a id="home"> <i class="fa-solid fa-house"></i> </a>
-		<a id="att-gora"> <i class="fa-solid fa-list-check"></i> Att göra</a>
-		<a id="inkorg"> <i class="fa-solid fa-inbox"></i> Quicknotes | Inkorg</a>
-		<a id="arken"> <i class="fa-solid fa-sailboat"></i> Arken</a>
+	<nav class="navMenu  border">
+		<a id="home" onclick="navigate(this.id)" href="#"> <i class="fa-solid fa-house"></i> </a>
+		<a id="att-gora" onclick="navigate(this.id)" href="#"> <i class="fa-solid fa-list-check"></i> Att göra</a>
+		<a id="inkorg" onclick="navigate(this.id)" href="#"> <i class="fa-solid fa-inbox"></i> Quicknotes | Inkorg</a>
+		<a id="arken" onclick="navigate(this.id)" href="#"> <i class="fa-solid fa-sailboat"></i> Arken</a>
+
+
+
+
+
+
+
 	</nav>
+
+
+	<script>
+
+		let direction = "horizontal";
+		if (direction === "vertical") {
+			document.head.insertAdjacentHTML("beforeend", <style>.navMenu a {display: block; text-align:left; margin:7px} i{width:15px; margin-right:5px} .navMenu{margin:3px}</style>)
+		}
+
+
+		function navigate(id) {
+		    if (id == 'home')
+		        window.location.href = "https://www.notion.so/Home-1c4764c211e3805da1c7f94f4628f6aa";
+		    else if (id == 'att-gora')
+		        window.location.href = "https://www.notion.so/Att-g-ra-1c4764c211e38025a575c6d20c1f5679";
+		    else if (id == 'inkorg')
+		        window.location.href = "https://www.notion.so/Quicknotes-Inkorg-1c4764c211e38075913cf4d89f6984c8";
+		    else if (id == 'arken')
+		        window.location.href = "https://www.notion.so/Arken-1c8764c211e380a79859d5a593f1f062";
+		}
+
+	</script>
+
 
 </body>
 
