@@ -30,7 +30,7 @@
 		}
 
 		.navMenu a {
-			color: #FFFFFF;
+			color: #ffea00;
 			text-decoration: none;
 			text-transform: uppercase;
 			display: inline-block;
@@ -49,23 +49,41 @@
 			color: #9A6DD7;
 		}
 	</style>
+
+	<script>
+		// This script will add the appropriate links
+		window.onload = function() {
+			var isNotionApp = (navigator.userAgent.indexOf("Electron") > -1); // Check if running in Notion desktop app
+			var links = document.querySelectorAll('.navMenu a');
+
+			links.forEach(function(link) {
+				var notionId = link.getAttribute('id');
+				var notionBase = "https://www.notion.so/"; // Fallback for browser
+				var notionAppBase = "notion://www.notion.so/"; // Link for Notion desktop app
+
+				// Map of page IDs
+				var notionPages = {
+					"home": "Home-1c4764c211e3805da1c7f94f4628f6aa",
+					"att-gora": "Att-g-ra-1c4764c211e38025a575c6d20c1f5679",
+					"inkorg": "Quicknotes-Inkorg-1c4764c211e38075913cf4d89f6984c8",
+					"arken": "Arken-1c8764c211e380a79859d5a593f1f062"
+				};
+
+				// Set the link based on whether it's Notion app or web
+				link.setAttribute('href', isNotionApp ? notionAppBase + notionPages[notionId] : notionBase + notionPages[notionId]);
+			});
+		};
+	</script>
+
 </head>
 
 <body>
 
 	<nav class="navMenu border">
-		<a id="home" href="notion://www.notion.so/Home-1c4764c211e3805da1c7f94f4628f6aa"> 
-			<i class="fa-solid fa-house"></i> 
-		</a>
-		<a id="att-gora" href="notion://www.notion.so/Att-g-ra-1c4764c211e38025a575c6d20c1f5679"> 
-			<i class="fa-solid fa-list-check"></i> Att göra
-		</a>
-		<a id="inkorg" href="notion://www.notion.so/Quicknotes-Inkorg-1c4764c211e38075913cf4d89f6984c8"> 
-			<i class="fa-solid fa-inbox"></i> Quicknotes | Inkorg
-		</a>
-		<a id="arken" href="notion://www.notion.so/Arken-1c8764c211e380a79859d5a593f1f062"> 
-			<i class="fa-solid fa-sailboat"></i> Arken
-		</a>
+		<a id="home"> <i class="fa-solid fa-house"></i> </a>
+		<a id="att-gora"> <i class="fa-solid fa-list-check"></i> Att göra</a>
+		<a id="inkorg"> <i class="fa-solid fa-inbox"></i> Quicknotes | Inkorg</a>
+		<a id="arken"> <i class="fa-solid fa-sailboat"></i> Arken</a>
 	</nav>
 
 </body>
